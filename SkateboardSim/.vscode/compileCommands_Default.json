@@ -16,6 +16,22 @@
 		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
 	},
 	{
+		"file": "D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\Source\\SkateboardSim\\Characters\\EStat.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\.vscode\\compileCommands_Default\\SkateboardSim.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\Source\\SkateboardSim\\Characters\\EStat.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\.vscode\\compileCommands_Default\\SkateboardSim.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
 		"file": "D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\Source\\SkateboardSim\\Characters\\SkateBoardCharacter.cpp",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
@@ -25,6 +41,22 @@
 	},
 	{
 		"file": "D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\Source\\SkateboardSim\\Characters\\SkateBoardCharacter.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\.vscode\\compileCommands_Default\\SkateboardSim.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\Source\\SkateboardSim\\Components\\StatsComponent.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
+			"@D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\.vscode\\compileCommands_Default\\SkateboardSim.1.rsp"
+		],
+		"directory": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source"
+	},
+	{
+		"file": "D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\Source\\SkateboardSim\\Components\\StatsComponent.h",
 		"arguments": [
 			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe",
 			"@D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\.vscode\\compileCommands_Default\\SkateboardSim.1.rsp"

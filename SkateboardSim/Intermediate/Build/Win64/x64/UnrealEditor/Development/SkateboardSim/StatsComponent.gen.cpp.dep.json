@@ -6,7 +6,7 @@
         "PCH": "d:\\users\\documents\\davidnew\\github\\skateboardzone\\skateboardsim\\intermediate\\build\\win64\\x64\\skateboardsimeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
         "Includes": [
             "d:\\users\\documents\\davidnew\\github\\skateboardzone\\skateboardsim\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\skateboardsim\\definitions.skateboardsim.h",
-            "d:\\users\\documents\\davidnew\\github\\skateboardzone\\skateboardsim\\source\\skateboardsim\\components\\statscomponent.h",
+            "d:\\users\\documents\\davidnew\\github\\skateboardzone\\skateboardsim\\source\\skateboardsim\\public\\stats\\statscomponent.h",
             "d:\\users\\documents\\davidnew\\github\\skateboardzone\\skateboardsim\\intermediate\\build\\win64\\unrealeditor\\inc\\skateboardsim\\uht\\statscomponent.generated.h"
         ],
         "ImportedModules": [],

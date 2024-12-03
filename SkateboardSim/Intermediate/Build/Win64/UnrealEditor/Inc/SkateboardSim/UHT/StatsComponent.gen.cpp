@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SkateboardSim/Components/StatsComponent.h"
+#include "SkateboardSim/Public/Stats/StatsComponent.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeStatsComponent() {}
 
@@ -31,8 +31,8 @@ struct Z_Construct_UClass_UStatsComponent_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
 		{ "BlueprintSpawnableComponent", "" },
 		{ "ClassGroupNames", "Custom" },
-		{ "IncludePath", "Components/StatsComponent.h" },
-		{ "ModuleRelativePath", "Components/StatsComponent.h" },
+		{ "IncludePath", "Stats/StatsComponent.h" },
+		{ "ModuleRelativePath", "Public/Stats/StatsComponent.h" },
 	};
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
@@ -78,14 +78,14 @@ UStatsComponent::~UStatsComponent() {}
 // End Class UStatsComponent
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Components_StatsComponent_h_Statics
+struct Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UStatsComponent, UStatsComponent::StaticClass, TEXT("UStatsComponent"), &Z_Registration_Info_UClass_UStatsComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UStatsComponent), 2252375735U) },
+		{ Z_Construct_UClass_UStatsComponent, UStatsComponent::StaticClass, TEXT("UStatsComponent"), &Z_Registration_Info_UClass_UStatsComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UStatsComponent), 1734195725U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Components_StatsComponent_h_3200714401(TEXT("/Script/SkateboardSim"),
-	Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Components_StatsComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Components_StatsComponent_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_4141082071(TEXT("/Script/SkateboardSim"),
+	Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration
