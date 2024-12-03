@@ -50,6 +50,12 @@ void AObstacle::OnOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActo
 			FString::Printf(TEXT("Box collision killer collided with!"))
 		);
 	}
+
+	IMainCharacter* MainCharacter = Cast<IMainCharacter>(OtherActor);
+	if(MainCharacter)
+	{
+		MainCharacter->OnObstacleHit();
+	}
 }
 
 void AObstacle::OnPointsOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)

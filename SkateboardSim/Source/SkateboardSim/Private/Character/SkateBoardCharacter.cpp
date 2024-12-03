@@ -6,7 +6,12 @@
 #include "Stats/StatsComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Interfaces/MainCharacter.h"
+#include "GameMode/SkaterSimGameMode.h"
+#include "UI/MainHUDWidget.h"
+#include "GameMode/SkatePlayerStart.h"
+#include "Kismet/GameplayStatics.h"
 #include "Stats/EStat.h"
+#include "Sound/SoundBase.h"
 
 ASkateBoardCharacter::ASkateBoardCharacter()
 {
@@ -24,7 +29,7 @@ ASkateBoardCharacter::ASkateBoardCharacter()
 	SkateboardMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Skateboard Static Mesh"));
 	SkateboardMesh-> SetupAttachment(RootComponent);
 
-	StatsComponent= CreateDefaultSubobject<UStatsComponent>(TEXT("Stats Component"));
+	StatsComp= CreateDefaultSubobject<UStatsComponent>(TEXT("Stats Comp"));
 }
 
 void ASkateBoardCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -42,6 +47,14 @@ void ASkateBoardCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 void ASkateBoardCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+    AGameMode* GameMode = Cast<AGameMode>(GetWorld()->GetAuthGameMode());
+
+    if (GameMode)
+    {
+        MainGameMode = Cast<ASkaterSimGameMode>(GameMode);
+    }
+
 }
 
 void ASkateBoardCharacter::MoveForward(float Value)
@@ -80,7 +93,7 @@ void ASkateBoardCharacter::Tick(float DeltaTime)
 
 }
 
-void ASkateBoardCharacter::GrantPoints(float Amount)
+void ASkateBoardCharacter::GrantPoints(int Amount)
 {
 	if(GEngine)
 	{
@@ -92,5 +105,44 @@ void ASkateBoardCharacter::GrantPoints(float Amount)
 		);
 	}
 	
-	StatsComponent->Stats[EStat::CurrentPoints] += Amount;
+	StatsComp->Stats[EStat::CurrentPoints] += Amount;
+
+	MainGameMode->WidgetInstance->SetPointsText(StatsComp->Stats[EStat::CurrentPoints]);
+
+	if(PointsSoundEffect)
+	{
+		UGameplayStatics::PlaySound2D(
+			this, 
+			PointsSoundEffect, 
+			1, 1, 0, 
+			nullptr, nullptr, true
+		);
+	}
+
 }
+
+void ASkateBoardCharacter::OnObstacleHit()
+{
+	if(FallingAnimMontage)
+	{
+		PlayAnimMontage(FallingAnimMontage);
+	}
+
+	DisableInput(GetController<APlayerController>());
+
+	GetWorld()->GetTimerManager().SetTimer(
+		TimerHandle, 
+		this, 
+		&ASkateBoardCharacter::Respawn, 
+		MainGameMode->PlayerRespawnDelay, 
+		false
+	);
+
+}
+
+void ASkateBoardCharacter::Respawn()
+{
+	Destroy();
+	MainGameMode->HandlePlayerRespawn();
+}
+

@@ -17,8 +17,8 @@ public:
 	// Sets default values for this component's properties
 	UStatsComponent();
 
-	UPROPERTY(VisibleAnywhere)
-	TMap<TEnumAsByte<EStat>, float> Stats;
+	UPROPERTY(EditAnywhere)
+	TMap<TEnumAsByte<EStat>, int> Stats;
 
 protected:
 	// Called when the game starts

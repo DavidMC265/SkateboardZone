@@ -21,7 +21,7 @@ class SKATEBOARDSIM_API AObstacle : public AActor
 	class UBoxComponent* PointsCollisionBox;
 
 	UPROPERTY(EditAnywhere, Category = "Obstacle Points")
-	float PointsToGrant = 10.f;
+	int PointsToGrant = 10;
 
 
 	UFUNCTION()    

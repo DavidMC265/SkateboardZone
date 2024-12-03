@@ -13,5 +13,11 @@ UCLASS()
 class SKATEBOARDSIM_API UMainHUDWidget : public UUserWidget
 {
 	GENERATED_BODY()
+
+public:
+	UPROPERTY(meta = (BindWidget))
+	class UTextBlock* PointsText;
+
+	void SetPointsText(int PointsAmount);
 	
 };

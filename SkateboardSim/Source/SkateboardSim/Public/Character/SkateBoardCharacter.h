@@ -13,13 +13,23 @@ class SKATEBOARDSIM_API ASkateBoardCharacter : public ACharacter, public IMainCh
 {
 	GENERATED_BODY()
 
+	class ASkaterSimGameMode* MainGameMode;
+
+	UPROPERTY(EditAnywhere, Category = "AnimMontages")
+	class UAnimMontage* FallingAnimMontage;
+
+	UPROPERTY(EditAnywhere, Category = "Sound Effects")
+	class USoundBase* PointsSoundEffect;
+
 public:
 	ASkateBoardCharacter();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UStatsComponent* StatsComponent;
+	class UStatsComponent* StatsComp;
 
-	virtual void GrantPoints(float Amount) override;
+	virtual void GrantPoints(int Amount) override;
+
+	virtual void OnObstacleHit() override;
 
 protected:
 	virtual void BeginPlay() override;
@@ -38,6 +48,11 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = "Skateboard Mesh")
 	class UStaticMeshComponent* SkateboardMesh;
+
+	UFUNCTION()
+	void Respawn();
+
+	FTimerHandle TimerHandle;
 
 public:	
 	virtual void Tick(float DeltaTime) override;
