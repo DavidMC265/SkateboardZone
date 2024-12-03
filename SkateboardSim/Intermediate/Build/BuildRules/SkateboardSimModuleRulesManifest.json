@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"D:\\Users\\Documents\\DavidNew\\Unreal Projects\\SkateboardSim\\Source\\SkateboardSim\\SkateboardSim.Build.cs",
-		"D:\\Users\\Documents\\DavidNew\\Unreal Projects\\SkateboardSim\\Source\\SkateboardSim.Target.cs",
-		"D:\\Users\\Documents\\DavidNew\\Unreal Projects\\SkateboardSim\\Source\\SkateboardSimEditor.Target.cs"
+		"D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\Source\\SkateboardSim\\SkateboardSim.Build.cs",
+		"D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\Source\\SkateboardSim.Target.cs",
+		"D:\\Users\\Documents\\DavidNew\\Github\\SkateboardZone\\SkateboardSim\\Source\\SkateboardSimEditor.Target.cs"
 	],
 	"EngineVersion": "5.4.4"
 }
