@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "SkateboardSim",
+			"Path": "..\\Source\\SkateboardSim.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "SkateboardSimEditor",
+			"Path": "..\\Source\\SkateboardSimEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
