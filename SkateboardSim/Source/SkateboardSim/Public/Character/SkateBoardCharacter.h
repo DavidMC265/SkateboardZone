@@ -4,19 +4,22 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-// #include "EStat.h"
+#include "Stats/EStat.h"
+#include "Interfaces/MainCharacter.h"
 #include "SkateBoardCharacter.generated.h"
 
 UCLASS()
-class SKATEBOARDSIM_API ASkateBoardCharacter : public ACharacter
+class SKATEBOARDSIM_API ASkateBoardCharacter : public ACharacter, public IMainCharacter
 {
 	GENERATED_BODY()
 
 public:
 	ASkateBoardCharacter();
 
-	// UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	// class UStatsComponent* StatsComponent;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UStatsComponent* StatsComponent;
+
+	virtual void GrantPoints(float Amount) override;
 
 protected:
 	virtual void BeginPlay() override;

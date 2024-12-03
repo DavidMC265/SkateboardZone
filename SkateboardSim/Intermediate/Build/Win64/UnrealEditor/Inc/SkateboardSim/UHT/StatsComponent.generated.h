@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SKATEBOARDSIM_StatsComponent_generated_h
 
-#define FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_13_INCLASS_NO_PURE_DECLS \
+#define FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUStatsComponent(); \
 	friend struct Z_Construct_UClass_UStatsComponent_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(UStatsComponent)
 
 
-#define FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_13_ENHANCED_CONSTRUCTORS \
+#define FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UStatsComponent(UStatsComponent&&); \
@@ -35,12 +35,12 @@ public: \
 	NO_API virtual ~UStatsComponent();
 
 
-#define FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_10_PROLOG
-#define FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_13_GENERATED_BODY \
+#define FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_11_PROLOG
+#define FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_13_INCLASS_NO_PURE_DECLS \
-	FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_13_ENHANCED_CONSTRUCTORS \
+	FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_14_INCLASS_NO_PURE_DECLS \
+	FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

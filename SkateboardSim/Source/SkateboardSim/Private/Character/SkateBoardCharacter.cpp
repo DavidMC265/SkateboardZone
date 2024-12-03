@@ -3,8 +3,10 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/SkeletalMeshComponent.h"
-// #include "StatsComponent.h"
+#include "Stats/StatsComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Interfaces/MainCharacter.h"
+#include "Stats/EStat.h"
 
 ASkateBoardCharacter::ASkateBoardCharacter()
 {
@@ -22,7 +24,7 @@ ASkateBoardCharacter::ASkateBoardCharacter()
 	SkateboardMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Skateboard Static Mesh"));
 	SkateboardMesh-> SetupAttachment(RootComponent);
 
-	// StatsComponent= CreateDefaultSubobject<UStatsComponent>(TEXT("Stats Component"));
+	StatsComponent= CreateDefaultSubobject<UStatsComponent>(TEXT("Stats Component"));
 }
 
 void ASkateBoardCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -37,11 +39,9 @@ void ASkateBoardCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 	PlayerInputComponent->BindAxis("LookUp", this, &ASkateBoardCharacter::LookUp);
 }
 
-
 void ASkateBoardCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 void ASkateBoardCharacter::MoveForward(float Value)
@@ -80,3 +80,17 @@ void ASkateBoardCharacter::Tick(float DeltaTime)
 
 }
 
+void ASkateBoardCharacter::GrantPoints(float Amount)
+{
+	if(GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(
+			-1, 
+			15.f, 
+			FColor::Blue, 
+			FString::Printf(TEXT("Ive picked up some points!!"))
+		);
+	}
+	
+	StatsComponent->Stats[EStat::CurrentPoints] += Amount;
+}

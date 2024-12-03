@@ -1,6 +1,8 @@
 
 #include "Obstacles/Obstacle.h"
 #include "Components/BoxComponent.h"
+#include "Interfaces/MainCharacter.h"
+
 
 AObstacle::AObstacle()
 {
@@ -37,18 +39,36 @@ void AObstacle::OnOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActo
 {
 	UE_LOG(LogTemp, Warning, TEXT("Box Collision collided with"));
 
+	if(!OtherActor->Implements<UMainCharacter>()) { return; }
+
 	if(GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red, FString::Printf(TEXT("Box collision killer collided with!")));
+		GEngine->AddOnScreenDebugMessage(
+			-1, 
+			15.f, 
+			FColor::Red, 
+			FString::Printf(TEXT("Box collision killer collided with!"))
+		);
 	}
 }
 
 void AObstacle::OnPointsOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Points granted to player!!"));
+	if(!OtherActor->Implements<UMainCharacter>()) { return; }
 
 	if(GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Green, FString::Printf(TEXT("Points Granted to player!")));
+		GEngine->AddOnScreenDebugMessage(
+			-1, 
+			15.f, 
+			FColor::Green, 
+			FString::Printf(TEXT("Points Granted to player!"))
+		);
+	}
+
+	IMainCharacter* MainCharacter = Cast<IMainCharacter>(OtherActor);
+	if(MainCharacter)
+	{
+		MainCharacter->GrantPoints(PointsToGrant);
 	}
 }

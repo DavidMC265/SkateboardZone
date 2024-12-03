@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Stats/EStat.h"
 #include "StatsComponent.generated.h"
 
 
@@ -16,8 +17,8 @@ public:
 	// Sets default values for this component's properties
 	UStatsComponent();
 
-	// UPROPERTY(VisibleAnywhere)
-	// TMap<TEnumAsByte<EStat>, float> Stats;
+	UPROPERTY(VisibleAnywhere)
+	TMap<TEnumAsByte<EStat>, float> Stats;
 
 protected:
 	// Called when the game starts

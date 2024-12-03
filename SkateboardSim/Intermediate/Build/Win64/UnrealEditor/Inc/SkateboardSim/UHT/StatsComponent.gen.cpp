@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeStatsComponent() {}
 ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 SKATEBOARDSIM_API UClass* Z_Construct_UClass_UStatsComponent();
 SKATEBOARDSIM_API UClass* Z_Construct_UClass_UStatsComponent_NoRegister();
+SKATEBOARDSIM_API UEnum* Z_Construct_UEnum_SkateboardSim_EStat();
 UPackage* Z_Construct_UPackage__Script_SkateboardSim();
 // End Cross Module References
 
@@ -34,13 +35,30 @@ struct Z_Construct_UClass_UStatsComponent_Statics
 		{ "IncludePath", "Stats/StatsComponent.h" },
 		{ "ModuleRelativePath", "Public/Stats/StatsComponent.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Stats_MetaData[] = {
+		{ "Category", "StatsComponent" },
+		{ "ModuleRelativePath", "Public/Stats/StatsComponent.h" },
+	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_Stats_ValueProp;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_Stats_Key_KeyProp;
+	static const UECodeGen_Private::FMapPropertyParams NewProp_Stats;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UStatsComponent>::IsAbstract,
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats_ValueProp = { "Stats", nullptr, (EPropertyFlags)0x0000000000020001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats_Key_KeyProp = { "Stats_Key", nullptr, (EPropertyFlags)0x0000000000020001, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_SkateboardSim_EStat, METADATA_PARAMS(0, nullptr) }; // 862968472
+const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats = { "Stats", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UStatsComponent, Stats), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Stats_MetaData), NewProp_Stats_MetaData) }; // 862968472
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UStatsComponent_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats_ValueProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats_Key_KeyProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UStatsComponent_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UStatsComponent_Statics::DependentSingletons[])() = {
 	(UObject* (*)())Z_Construct_UClass_UActorComponent,
 	(UObject* (*)())Z_Construct_UPackage__Script_SkateboardSim,
@@ -52,11 +70,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_UStatsComponent_Statics
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	nullptr,
-	nullptr,
+	Z_Construct_UClass_UStatsComponent_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
 	0,
-	0,
+	UE_ARRAY_COUNT(Z_Construct_UClass_UStatsComponent_Statics::PropPointers),
 	0,
 	0x00B000A4u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UStatsComponent_Statics::Class_MetaDataParams), Z_Construct_UClass_UStatsComponent_Statics::Class_MetaDataParams)
@@ -81,10 +99,10 @@ UStatsComponent::~UStatsComponent() {}
 struct Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UStatsComponent, UStatsComponent::StaticClass, TEXT("UStatsComponent"), &Z_Registration_Info_UClass_UStatsComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UStatsComponent), 1734195725U) },
+		{ Z_Construct_UClass_UStatsComponent, UStatsComponent::StaticClass, TEXT("UStatsComponent"), &Z_Registration_Info_UClass_UStatsComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UStatsComponent), 3005315398U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_4141082071(TEXT("/Script/SkateboardSim"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_3324281309(TEXT("/Script/SkateboardSim"),
 	Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
