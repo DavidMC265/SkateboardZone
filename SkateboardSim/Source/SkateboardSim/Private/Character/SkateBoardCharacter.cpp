@@ -53,6 +53,10 @@ void ASkateBoardCharacter::BeginPlay()
     if (GameMode)
     {
         MainGameMode = Cast<ASkaterSimGameMode>(GameMode);
+		if(MainGameMode)
+		{
+			MainGameMode->WidgetInstance->SetPointsText(StatsComp->Stats[EStat::CurrentPoints]);
+		}
     }
 
 }

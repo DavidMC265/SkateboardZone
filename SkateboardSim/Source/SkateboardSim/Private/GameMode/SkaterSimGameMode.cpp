@@ -21,7 +21,7 @@ void ASkaterSimGameMode::BeginPlay()
             WidgetInstance->AddToViewport();
         }
         
-        WidgetInstance->SetPointsText(2);
+        // WidgetInstance->SetPointsText(0);
     }
 }
 void ASkaterSimGameMode::HandlePlayerRespawn()
