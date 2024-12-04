@@ -11,6 +11,7 @@
 #include "GameMode/SkatePlayerStart.h"
 #include "Kismet/GameplayStatics.h"
 #include "Stats/EStat.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "Sound/SoundBase.h"
 
 ASkateBoardCharacter::ASkateBoardCharacter()
@@ -37,6 +38,8 @@ void ASkateBoardCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("SpeedBoost", IE_Pressed, this, &ASkateBoardCharacter::StartSpeedBoost);
+    PlayerInputComponent->BindAction("SpeedBoost", IE_Released, this, &ASkateBoardCharacter::StopSpeedBoost);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ASkateBoardCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ASkateBoardCharacter::MoveRight);
@@ -58,7 +61,6 @@ void ASkateBoardCharacter::BeginPlay()
 			MainGameMode->WidgetInstance->SetPointsText(StatsComp->Stats[EStat::CurrentPoints]);
 		}
     }
-
 }
 
 void ASkateBoardCharacter::MoveForward(float Value)
@@ -90,6 +92,17 @@ void ASkateBoardCharacter::LookUp(float Value)
 {
 	AddControllerPitchInput(Value);
 }
+
+void ASkateBoardCharacter::StartSpeedBoost()
+{
+	GetCharacterMovement()->MaxWalkSpeed = 1200.0f; // Set to boosted speed
+}
+
+void ASkateBoardCharacter::StopSpeedBoost()
+{
+    GetCharacterMovement()->MaxWalkSpeed = 600.0f; // Reset to default speed
+}
+
 
 void ASkateBoardCharacter::Tick(float DeltaTime)
 {
