@@ -27,6 +27,9 @@ class SKATEBOARDSIM_API ASkateBoardCharacter : public ACharacter, public IMainCh
 	UPROPERTY(EditAnywhere, Category = "Sound Effects")
 	class USoundBase* PointsSoundEffect;
 
+	UPROPERTY(EditAnywhere, Category = "Sound Effects")
+	class USoundBase* WaypointSoundEffect;
+
 	UPROPERTY(VisibleAnywhere)
 	bool IsDead = false;
 

@@ -37,13 +37,20 @@ public:
 
 	void HandlePlayerRespawn();
 
+	void HandlePlayerWin();
+
 	UPROPERTY(EditAnywhere, Category = "Player")
 	float PlayerRespawnDelay { 5.f };
 
 	UPROPERTY(EditAnywhere, Category = "UI")
     TSubclassOf<class UUserWidget> PlayerDefeatedWidget;
 
+	UPROPERTY(EditAnywhere, Category = "UI")
+    TSubclassOf<class UUserWidget> PlayerWinWidget;
+
 	UUserWidget* DefatedInstanceWidget;
+
+	UUserWidget* WinInstanceWidget;
 
 	UFUNCTION(BlueprintCallable)
 	void SpawnPlayer();

@@ -19,9 +19,7 @@ void ASkaterSimGameMode::BeginPlay()
         if (WidgetInstance)
         {
             WidgetInstance->AddToViewport();
-        }
-        
-        // WidgetInstance->SetPointsText(0);
+        }        
     }
 }
 
@@ -41,6 +39,20 @@ void ASkaterSimGameMode::HandlePlayerRespawn()
         if (DefatedInstanceWidget)
         {
             DefatedInstanceWidget->AddToViewport(5);
+        }        
+    }
+}
+
+void ASkaterSimGameMode::HandlePlayerWin()
+{
+    if (PlayerWinWidget)
+    {
+       WinInstanceWidget = CreateWidget<UUserWidget>(GetWorld(), PlayerWinWidget);
+
+        if (WinInstanceWidget)
+        {
+            WinInstanceWidget->AddToViewport(10);
+            GetWorld()->GetFirstPlayerController()->bShowMouseCursor = true;
         }        
     }
 }

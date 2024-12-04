@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "WaypointManager.generated.h"
 
+class AWaypoint;
+
 UCLASS()
 class SKATEBOARDSIM_API AWaypointManager : public AActor
 {
@@ -14,6 +16,13 @@ class SKATEBOARDSIM_API AWaypointManager : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AWaypointManager();
+
+	void SpawnWaypoint();
+
+	TArray<AActor*> OutActors;
+
+	UPROPERTY(EditAnywhere, Category = "Player")
+	TSubclassOf<AWaypoint> WaypointSubClass;
 
 protected:
 	// Called when the game starts or when spawned

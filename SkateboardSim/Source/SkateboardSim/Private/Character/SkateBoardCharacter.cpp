@@ -147,7 +147,6 @@ void ASkateBoardCharacter::Tick(float DeltaTime)
 			SlowDownSpeedRate
 		);
 	}
-
 }
 
 void ASkateBoardCharacter::GrantPoints(int Amount)
@@ -188,6 +187,26 @@ void ASkateBoardCharacter::OnObstacleHit()
 void ASkateBoardCharacter::OnWaypointCollected()
 {
 	StatsComp->WaypointsCollected += 1;
+
+	if(StatsComp->WaypointsCollected >= 10)
+	{
+    	APlayerController* PlayerController = Cast<APlayerController>(GetController());
+    	if (PlayerController)
+    	{
+        	DisableInput(PlayerController);
+			MainGameMode->HandlePlayerWin();
+		}
+	}
+
+	if(WaypointSoundEffect)
+	{
+		UGameplayStatics::PlaySound2D(
+			this, 
+			WaypointSoundEffect, 
+			1, 1, 0, 
+			nullptr, nullptr, true
+		);
+	}
 
 	MainGameMode->WidgetInstance->SetWaypointsText(StatsComp->WaypointsCollected);
 }

@@ -17,10 +17,10 @@ public:
 	// Sets default values for this component's properties
 	UStatsComponent();
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TMap<TEnumAsByte<EStat>, int> Stats;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int WaypointsCollected { 0 };
 
 protected:
