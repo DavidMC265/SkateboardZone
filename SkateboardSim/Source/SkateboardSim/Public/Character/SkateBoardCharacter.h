@@ -27,6 +27,12 @@ class SKATEBOARDSIM_API ASkateBoardCharacter : public ACharacter, public IMainCh
 	UPROPERTY(EditAnywhere, Category = "Sound Effects")
 	class USoundBase* PointsSoundEffect;
 
+	UPROPERTY(VisibleAnywhere)
+	bool IsDead = false;
+
+	UPROPERTY(EditAnywhere)
+	double SlowDownSpeedRate { 10.f };
+
 public:
 	ASkateBoardCharacter();
 
@@ -36,6 +42,12 @@ public:
 	virtual void GrantPoints(int Amount) override;
 
 	virtual void OnObstacleHit() override;
+
+	virtual void OnWaypointCollected() override;
+
+	virtual void SetPlayerDead(bool IsPlayerDead);
+
+	virtual bool GetPlayerDead();
 
 protected:
 	virtual void BeginPlay() override;
@@ -47,6 +59,8 @@ protected:
 	void JumpAction();
 	void StartSpeedBoost();
     void StopSpeedBoost();
+	void StartSlowDown();
+    void StopSlowDown();
 
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
@@ -62,6 +76,8 @@ private:
 	void Respawn();
 
 	FTimerHandle TimerHandle;
+
+	bool bIsSlowingDown { false };
 
 public:	
 	virtual void Tick(float DeltaTime) override;

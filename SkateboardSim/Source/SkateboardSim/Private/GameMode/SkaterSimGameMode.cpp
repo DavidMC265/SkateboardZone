@@ -24,6 +24,14 @@ void ASkaterSimGameMode::BeginPlay()
         // WidgetInstance->SetPointsText(0);
     }
 }
+
+
+void ASkaterSimGameMode::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+}
+
+
 void ASkaterSimGameMode::HandlePlayerRespawn()
 {
     if (PlayerDefeatedWidget)
@@ -32,23 +40,9 @@ void ASkaterSimGameMode::HandlePlayerRespawn()
 
         if (DefatedInstanceWidget)
         {
-            GEngine->AddOnScreenDebugMessage(
-			    -1, 
-			    15.f, 
-			    FColor::Blue, 
-			    FString::Printf(TEXT("Player DefearedWidgetPlayed!"))
-		    );
-
             DefatedInstanceWidget->AddToViewport(5);
         }        
     }
-
-    GEngine->AddOnScreenDebugMessage(
-			-1, 
-			15.f, 
-			FColor::Orange, 
-			FString::Printf(TEXT("Player is About to respawn!"))
-		);
 }
 
 void ASkaterSimGameMode::SpawnPlayer()

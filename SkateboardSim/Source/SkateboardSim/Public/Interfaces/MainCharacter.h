@@ -25,4 +25,10 @@ public:
 	virtual void GrantPoints(int Amount) = 0;
 
 	virtual void OnObstacleHit() = 0;
+
+	virtual void OnWaypointCollected() = 0;
+
+	virtual void SetPlayerDead(bool IsPlayerDead) = 0;
+
+	virtual bool GetPlayerDead() = false;
 };

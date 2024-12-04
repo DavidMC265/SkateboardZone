@@ -20,6 +20,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	TMap<TEnumAsByte<EStat>, int> Stats;
 
+	UPROPERTY(EditAnywhere)
+	int WaypointsCollected { 0 };
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

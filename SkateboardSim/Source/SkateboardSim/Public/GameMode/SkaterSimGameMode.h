@@ -21,10 +21,15 @@ class SKATEBOARDSIM_API ASkaterSimGameMode : public AGameMode
 	UPROPERTY(EditAnywhere, Category = "Player")
 	TSubclassOf<ASkateBoardCharacter> SkateboardCharacterSubClass;
 
+	UPROPERTY(EditAnywhere)
+	float CountDownTimerValue = {59.f};
+
 protected: 
 	virtual void BeginPlay() override;
 
 public:
+	virtual void Tick(float DeltaTime) override;
+
 	UPROPERTY(EditAnywhere, Category = "UI")
     TSubclassOf<class UMainHUDWidget> MainUIWidget;
 
@@ -42,5 +47,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void SpawnPlayer();
+
+
 
 };

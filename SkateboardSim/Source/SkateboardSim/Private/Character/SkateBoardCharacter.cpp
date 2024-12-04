@@ -13,6 +13,7 @@
 #include "Stats/EStat.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Sound/SoundBase.h"
+#include "Kismet/KismetMathLibrary.h"
 
 ASkateBoardCharacter::ASkateBoardCharacter()
 {
@@ -40,6 +41,8 @@ void ASkateBoardCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ASkateBoardCharacter::JumpAction);
 	PlayerInputComponent->BindAction("SpeedBoost", IE_Pressed, this, &ASkateBoardCharacter::StartSpeedBoost);
     PlayerInputComponent->BindAction("SpeedBoost", IE_Released, this, &ASkateBoardCharacter::StopSpeedBoost);
+	PlayerInputComponent->BindAction("SlowDown", IE_Pressed, this, &ASkateBoardCharacter::StartSlowDown);
+    PlayerInputComponent->BindAction("SlowDown", IE_Released, this, &ASkateBoardCharacter::StopSlowDown);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ASkateBoardCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ASkateBoardCharacter::MoveRight);
@@ -65,6 +68,8 @@ void ASkateBoardCharacter::BeginPlay()
 
 void ASkateBoardCharacter::MoveForward(float Value)
 {
+	if(bIsSlowingDown) { return; }
+
 	if (Controller != nullptr && Value != 0.f)
 	{
 		const FRotator YawRotation(0.f, Controller->GetControlRotation().Yaw, 0.f);
@@ -75,6 +80,8 @@ void ASkateBoardCharacter::MoveForward(float Value)
 
 void ASkateBoardCharacter::MoveRight(float Value)
 {
+	if(bIsSlowingDown) { return; }
+
 	if (Controller != nullptr && Value != 0.f)
 	{
 		const FRotator YawRotation(0.f, Controller->GetControlRotation().Yaw, 0.f);
@@ -117,25 +124,34 @@ void ASkateBoardCharacter::StopSpeedBoost()
     GetCharacterMovement()->MaxWalkSpeed = 600.0f; // Reset to default speed
 }
 
+void ASkateBoardCharacter::StartSlowDown()
+{
+	bIsSlowingDown = true;
+}
+
+void ASkateBoardCharacter::StopSlowDown()
+{
+	bIsSlowingDown = false;
+}
 
 void ASkateBoardCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if(bIsSlowingDown)
+	{
+		GetCharacterMovement()->MaxWalkSpeed = UKismetMathLibrary::FInterpTo_Constant(
+			GetCharacterMovement()->MaxWalkSpeed,
+			0.f,
+			GetWorld()->DeltaTimeSeconds,
+			SlowDownSpeedRate
+		);
+	}
+
 }
 
 void ASkateBoardCharacter::GrantPoints(int Amount)
 {
-	if(GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(
-			-1, 
-			15.f, 
-			FColor::Blue, 
-			FString::Printf(TEXT("Ive picked up some points!!"))
-		);
-	}
-	
 	StatsComp->Stats[EStat::CurrentPoints] += Amount;
 
 	MainGameMode->WidgetInstance->SetPointsText(StatsComp->Stats[EStat::CurrentPoints]);
@@ -149,7 +165,6 @@ void ASkateBoardCharacter::GrantPoints(int Amount)
 			nullptr, nullptr, true
 		);
 	}
-
 }
 
 void ASkateBoardCharacter::OnObstacleHit()
@@ -170,6 +185,30 @@ void ASkateBoardCharacter::OnObstacleHit()
 	);
 }
 
+void ASkateBoardCharacter::OnWaypointCollected()
+{
+	StatsComp->WaypointsCollected += 1;
+
+	MainGameMode->WidgetInstance->SetWaypointsText(StatsComp->WaypointsCollected);
+}
+
+void ASkateBoardCharacter::SetPlayerDead(bool IsPlayerDead)
+{
+	if(IsPlayerDead == true)
+	{
+		IsDead = true;
+	}
+
+	if(IsPlayerDead == false)
+	{
+		IsDead = false;
+	}
+}
+
+bool ASkateBoardCharacter::GetPlayerDead()
+{
+    return IsDead;
+}
 void ASkateBoardCharacter::Respawn()
 {
 	Destroy();

@@ -18,6 +18,11 @@ public:
 	UPROPERTY(meta = (BindWidget))
 	class UTextBlock* PointsText;
 
+	UPROPERTY(meta = (BindWidget))
+	class UTextBlock* WaypointsText;
+
 	void SetPointsText(int PointsAmount);
+
+	void SetWaypointsText(int WaypointsCollected);
 	
 };
