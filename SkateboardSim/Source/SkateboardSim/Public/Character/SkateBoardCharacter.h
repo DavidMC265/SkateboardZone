@@ -18,6 +18,12 @@ class SKATEBOARDSIM_API ASkateBoardCharacter : public ACharacter, public IMainCh
 	UPROPERTY(EditAnywhere, Category = "AnimMontages")
 	class UAnimMontage* FallingAnimMontage;
 
+	UPROPERTY(EditAnywhere, Category = "AnimMontages")
+	class UAnimMontage* JumpAnimMontage;
+
+	UPROPERTY(EditAnywhere, Category = "AnimMontages")
+	class UAnimMontage* SpeedUpAnimation;
+
 	UPROPERTY(EditAnywhere, Category = "Sound Effects")
 	class USoundBase* PointsSoundEffect;
 
@@ -38,6 +44,7 @@ protected:
 	void MoveRight(float Value);
 	void Turn(float Value);
 	void LookUp(float Value);
+	void JumpAction();
 	void StartSpeedBoost();
     void StopSpeedBoost();
 

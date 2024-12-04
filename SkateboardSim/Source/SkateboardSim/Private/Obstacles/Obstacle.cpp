@@ -75,6 +75,8 @@ void AObstacle::OnPointsOverlap(UPrimitiveComponent *OverlappedComp, AActor *Oth
 	IMainCharacter* MainCharacter = Cast<IMainCharacter>(OtherActor);
 	if(MainCharacter)
 	{
-		MainCharacter->GrantPoints(PointsToGrant);
+		int32 RandomInt = FMath::RandRange(6, 10);
+
+		MainCharacter->GrantPoints(RandomInt);
 	}
 }

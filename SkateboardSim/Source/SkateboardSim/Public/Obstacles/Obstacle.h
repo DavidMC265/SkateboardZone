@@ -20,9 +20,6 @@ class SKATEBOARDSIM_API AObstacle : public AActor
 	UPROPERTY(EditAnywhere, Category = "Box Collision")
 	class UBoxComponent* PointsCollisionBox;
 
-	UPROPERTY(EditAnywhere, Category = "Obstacle Points")
-	int PointsToGrant = 10;
-
 
 	UFUNCTION()    
     void OnOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult);

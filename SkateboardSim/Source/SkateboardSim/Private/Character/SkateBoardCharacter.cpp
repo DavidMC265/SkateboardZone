@@ -28,7 +28,7 @@ ASkateBoardCharacter::ASkateBoardCharacter()
 	FollowCamera->bUsePawnControlRotation = false;
 
 	SkateboardMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Skateboard Static Mesh"));
-	SkateboardMesh-> SetupAttachment(RootComponent);
+	SkateboardMesh-> SetupAttachment(GetMesh());
 
 	StatsComp= CreateDefaultSubobject<UStatsComponent>(TEXT("Stats Comp"));
 }
@@ -37,7 +37,7 @@ void ASkateBoardCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ASkateBoardCharacter::JumpAction);
 	PlayerInputComponent->BindAction("SpeedBoost", IE_Pressed, this, &ASkateBoardCharacter::StartSpeedBoost);
     PlayerInputComponent->BindAction("SpeedBoost", IE_Released, this, &ASkateBoardCharacter::StopSpeedBoost);
 
@@ -93,8 +93,22 @@ void ASkateBoardCharacter::LookUp(float Value)
 	AddControllerPitchInput(Value);
 }
 
+void ASkateBoardCharacter::JumpAction()
+{
+	Jump();
+
+	if(JumpAnimMontage)
+	{
+		PlayAnimMontage(JumpAnimMontage);
+	}
+}
 void ASkateBoardCharacter::StartSpeedBoost()
 {
+	if(SpeedUpAnimation)
+	{
+		PlayAnimMontage(SpeedUpAnimation);
+	}
+
 	GetCharacterMovement()->MaxWalkSpeed = 1200.0f; // Set to boosted speed
 }
 
@@ -154,7 +168,6 @@ void ASkateBoardCharacter::OnObstacleHit()
 		MainGameMode->PlayerRespawnDelay, 
 		false
 	);
-
 }
 
 void ASkateBoardCharacter::Respawn()
