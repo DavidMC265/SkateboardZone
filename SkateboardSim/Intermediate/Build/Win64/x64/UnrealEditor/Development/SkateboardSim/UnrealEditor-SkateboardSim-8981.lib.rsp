@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-SkateboardSim-8981.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\SkateboardSimEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\SkateboardSim\Module.SkateboardSim.cpp.obj"
+"D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\SkateboardSim\Default.rc2.res"
+/OUT:"D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\SkateboardSim\UnrealEditor-SkateboardSim-8981.lib"
