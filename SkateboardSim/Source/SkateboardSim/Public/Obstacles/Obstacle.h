@@ -21,6 +21,7 @@ class SKATEBOARDSIM_API AObstacle : public AActor
 	class UBoxComponent* PointsCollisionBox;
 
 
+	//Overlap Events
 	UFUNCTION()    
     void OnOverlap(UPrimitiveComponent *OverlappedComp, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult);
 

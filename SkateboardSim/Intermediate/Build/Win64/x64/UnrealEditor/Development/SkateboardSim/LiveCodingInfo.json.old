@@ -1,5 +1,39 @@
 {
 	"RemapUnityFiles": 
 	{
+		"Module.SkateboardSim.cpp.obj": [
+			"CharacterAnimInstance.gen.cpp.obj",
+			"EStat.gen.cpp.obj",
+			"MainCharacter.gen.cpp.obj",
+			"MainHUDWidget.gen.cpp.obj",
+			"MainPlayer.gen.cpp.obj",
+			"Obstacle.gen.cpp.obj",
+			"SkateBoardCharacter.gen.cpp.obj",
+			"SkateboardSim.init.gen.cpp.obj",
+			"SkateboardSimCharacter.gen.cpp.obj",
+			"SkatePlayerStart.gen.cpp.obj",
+			"SkaterSimGameMode.gen.cpp.obj",
+			"StatsComponent.gen.cpp.obj",
+			"Waypoint.gen.cpp.obj",
+			"WaypointManager.gen.cpp.obj",
+			"WaypointSpawnPoint.gen.cpp.obj",
+			"CharacterAnimInstance.cpp.obj",
+			"MainPlayer.cpp.obj",
+			"SkateBoardCharacter.cpp.obj",
+			"SkatePlayerStart.cpp.obj",
+			"SkaterSimGameMode.cpp.obj",
+			"MainCharacter.cpp.obj",
+			"Obstacle.cpp.obj",
+			"EStat.cpp.obj",
+			"StatsComponent.cpp.obj",
+			"ThrowAway.cpp.obj",
+			"MainHUDWidget.cpp.obj",
+			"Example.cpp.obj",
+			"Waypoint.cpp.obj",
+			"WaypointManager.cpp.obj",
+			"WaypointSpawnPoint.cpp.obj",
+			"SkateboardSim.cpp.obj",
+			"SkateboardSimCharacter.cpp.obj"
+		]
 	}
 }

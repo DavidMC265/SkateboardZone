@@ -11,7 +11,7 @@
 void ASkaterSimGameMode::BeginPlay()
 {
     Super::BeginPlay();
-
+    
     if (MainUIWidget)
     {
        WidgetInstance = CreateWidget<UMainHUDWidget>(GetWorld(), MainUIWidget);
