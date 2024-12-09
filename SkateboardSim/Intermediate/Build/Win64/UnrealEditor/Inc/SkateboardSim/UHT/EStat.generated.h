@@ -16,7 +16,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define SKATEBOARDSIM_EStat_generated_h
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_SkateboardSim_Source_SkateboardSim_Public_Stats_EStat_h
+#define CURRENT_FILE_ID FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_Stats_EStat_h
 
 
 #define FOREACH_ENUM_ESTAT(op) \

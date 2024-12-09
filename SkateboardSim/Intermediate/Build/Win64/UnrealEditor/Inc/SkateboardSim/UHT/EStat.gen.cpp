@@ -69,15 +69,15 @@ UEnum* Z_Construct_UEnum_SkateboardSim_EStat()
 // End Enum EStat
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_EStat_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_Stats_EStat_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
 		{ EStat_StaticEnum, TEXT("EStat"), &Z_Registration_Info_UEnum_EStat, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 862968472U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_EStat_h_1881103867(TEXT("/Script/SkateboardSim"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_Stats_EStat_h_1881103867(TEXT("/Script/SkateboardSim"),
 	nullptr, 0,
 	nullptr, 0,
-	Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_EStat_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SkateboardSim_Source_SkateboardSim_Public_Stats_EStat_h_Statics::EnumInfo));
+	Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_Stats_EStat_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_Stats_EStat_h_Statics::EnumInfo));
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

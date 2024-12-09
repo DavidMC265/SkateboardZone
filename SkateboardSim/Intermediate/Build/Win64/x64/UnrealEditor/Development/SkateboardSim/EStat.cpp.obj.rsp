@@ -1,11 +1,11 @@
-"D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Source\SkateboardSim\Private\Stats\EStat.cpp"
-/FI"D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\SkateboardSimEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/FI"D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\SkateboardSim\Definitions.SkateboardSim.h"
-/Yu"D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\SkateboardSimEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/Fp"D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\SkateboardSimEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
-/Fo"D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\SkateboardSim\EStat.cpp.obj"
-/sourceDependencies "D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\SkateboardSim\EStat.cpp.dep.json"
-@"D:\Users\Documents\DavidNew\Github\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\SkateboardSim\SkateboardSim.Shared.rsp"
+"C:\Users\dmayo\Documents\GitHub\SkateboardZone\SkateboardSim\Source\SkateboardSim\Private\Stats\EStat.cpp"
+/FI"C:\Users\dmayo\Documents\GitHub\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\SkateboardSimEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"C:\Users\dmayo\Documents\GitHub\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\SkateboardSim\Definitions.SkateboardSim.h"
+/Yu"C:\Users\dmayo\Documents\GitHub\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\SkateboardSimEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/Fp"C:\Users\dmayo\Documents\GitHub\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\SkateboardSimEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Fo"C:\Users\dmayo\Documents\GitHub\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\SkateboardSim\EStat.cpp.obj"
+/sourceDependencies "C:\Users\dmayo\Documents\GitHub\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\SkateboardSim\EStat.cpp.dep.json"
+@"C:\Users\dmayo\Documents\GitHub\SkateboardZone\SkateboardSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\SkateboardSim\SkateboardSim.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi
