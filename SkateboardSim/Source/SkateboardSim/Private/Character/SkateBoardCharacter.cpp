@@ -4,6 +4,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Stats/StatsComponent.h"
+#include "Stats/UIComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Interfaces/MainCharacter.h"
 #include "GameMode/SkaterSimGameMode.h"
@@ -32,6 +33,7 @@ ASkateBoardCharacter::ASkateBoardCharacter()
 	SkateboardMesh-> SetupAttachment(GetMesh());
 
 	StatsComp= CreateDefaultSubobject<UStatsComponent>(TEXT("Stats Comp"));
+	UIComp = CreateDefaultSubobject<UUIComponent>(TEXT("UI Comp"));
 }
 
 void ASkateBoardCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -59,34 +61,7 @@ void ASkateBoardCharacter::BeginPlay()
     if (GameMode)
     {
         MainGameMode = Cast<ASkaterSimGameMode>(GameMode);
-
-		if(GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(
-				-1,
-				5.f,
-				FColor::Blue,
-				"Yes, got the gamemode and casted it!"
-			);
-		}
 	}
-	else
-	{
-		if(GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(
-				-1,
-				5.f,
-				FColor::Red,
-				"Couldnt Get the game Mode"
-			);
-		}
-	}
-	// 	if(MainGameMode)
-	// 	{
-	// 		MainGameMode->WidgetInstance->SetPointsText(StatsComp->CurrentPointsTotal);
-	// 	}
-    // }
 }
 
 void ASkateBoardCharacter::MoveForward(float Value)
@@ -175,9 +150,8 @@ void ASkateBoardCharacter::Tick(float DeltaTime)
 void ASkateBoardCharacter::GrantPoints(int Amount)
 {
 	StatsComp->CurrentPointsTotal+= Amount;
-	FOnPlayerGrantedPointsDelegate.Broadcast(StatsComp->CurrentPointsTotal);
-
-	// MainGameMode->WidgetInstance->SetPointsText(StatsComp->CurrentPointsTotal);
+	
+	UIComp->FOnGrantedPointsDelegate.Broadcast(StatsComp->CurrentPointsTotal);
 
 	if(PointsSoundEffect)
 	{
@@ -199,19 +173,19 @@ void ASkateBoardCharacter::OnObstacleHit()
 
 	DisableInput(GetController<APlayerController>());
 
-	// GetWorld()->GetTimerManager().SetTimer(
-	// 	TimerHandle, 
-	// 	this, 
-	// 	&ASkateBoardCharacter::Respawn, 
-	// 	MainGameMode->PlayerRespawnDelay, 
-	// 	false
-	// );
+	GetWorld()->GetTimerManager().SetTimer(
+		TimerHandle, 
+		this, 
+		&ASkateBoardCharacter::Respawn, 
+		MainGameMode->PlayerRespawnDelay, 
+		false
+	);
 }
 
 void ASkateBoardCharacter::OnWaypointCollected()
 {
 	StatsComp->WaypointsCollected += 1;
-	FOnPlayerCollectsWaypointDelegate.Broadcast(StatsComp->WaypointsCollected);
+	UIComp->FOnCollectsWaypointDelegate.Broadcast(StatsComp->WaypointsCollected);
 
 	if(StatsComp->WaypointsCollected >= 10)
 	{
@@ -219,8 +193,7 @@ void ASkateBoardCharacter::OnWaypointCollected()
     	if (PlayerController)
     	{
         	DisableInput(PlayerController);
-			FOnPlayerWinDelegate.Broadcast();
-			// MainGameMode->HandlePlayerWin();
+			UIComp->FOnWinDelegate.Broadcast();
 		}
 	}
 
@@ -233,8 +206,6 @@ void ASkateBoardCharacter::OnWaypointCollected()
 			nullptr, nullptr, true
 		);
 	}
-
-	// MainGameMode->WidgetInstance->SetWaypointsText(StatsComp->WaypointsCollected);
 }
 
 void ASkateBoardCharacter::SetPlayerDead(bool IsPlayerDead)
@@ -257,6 +228,6 @@ bool ASkateBoardCharacter::GetPlayerDead()
 void ASkateBoardCharacter::Respawn()
 {
 	Destroy();
-	// MainGameMode->HandlePlayerRespawn();
+	MainGameMode->HandlePlayerRespawn();
 }
 

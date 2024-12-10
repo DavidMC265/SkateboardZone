@@ -1,14 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameMode.h"
 #include "SkaterSimGameMode.generated.h"
 
-/**
- * 
- */
+
 class UMainHUDWidget;
 class ASkateBoardCharacter;
 class UUserWidget;
@@ -29,9 +25,6 @@ protected:
 
 public:
 	virtual void Tick(float DeltaTime) override;
-
-	UPROPERTY(EditAnywhere, Category = "UI")
-    TSubclassOf<class UMainHUDWidget> MainUIWidget;
 
 	UMainHUDWidget* WidgetInstance;
 

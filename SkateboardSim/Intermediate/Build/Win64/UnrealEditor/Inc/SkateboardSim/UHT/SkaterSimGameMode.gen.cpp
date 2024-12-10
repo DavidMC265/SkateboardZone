@@ -15,7 +15,6 @@ ENGINE_API UClass* Z_Construct_UClass_AGameMode();
 SKATEBOARDSIM_API UClass* Z_Construct_UClass_ASkateBoardCharacter_NoRegister();
 SKATEBOARDSIM_API UClass* Z_Construct_UClass_ASkaterSimGameMode();
 SKATEBOARDSIM_API UClass* Z_Construct_UClass_ASkaterSimGameMode_NoRegister();
-SKATEBOARDSIM_API UClass* Z_Construct_UClass_UMainHUDWidget_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 UPackage* Z_Construct_UPackage__Script_SkateboardSim();
 // End Cross Module References
@@ -80,10 +79,6 @@ struct Z_Construct_UClass_ASkaterSimGameMode_Statics
 		{ "Category", "SkaterSimGameMode" },
 		{ "ModuleRelativePath", "Public/GameMode/SkaterSimGameMode.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MainUIWidget_MetaData[] = {
-		{ "Category", "UI" },
-		{ "ModuleRelativePath", "Public/GameMode/SkaterSimGameMode.h" },
-	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PlayerRespawnDelay_MetaData[] = {
 		{ "Category", "Player" },
 		{ "ModuleRelativePath", "Public/GameMode/SkaterSimGameMode.h" },
@@ -99,7 +94,6 @@ struct Z_Construct_UClass_ASkaterSimGameMode_Statics
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FClassPropertyParams NewProp_SkateboardCharacterSubClass;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_CountDownTimerValue;
-	static const UECodeGen_Private::FClassPropertyParams NewProp_MainUIWidget;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_PlayerRespawnDelay;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_PlayerDefeatedWidget;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_PlayerWinWidget;
@@ -116,14 +110,12 @@ struct Z_Construct_UClass_ASkaterSimGameMode_Statics
 };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_SkateboardCharacterSubClass = { "SkateboardCharacterSubClass", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASkaterSimGameMode, SkateboardCharacterSubClass), Z_Construct_UClass_UClass, Z_Construct_UClass_ASkateBoardCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SkateboardCharacterSubClass_MetaData), NewProp_SkateboardCharacterSubClass_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_CountDownTimerValue = { "CountDownTimerValue", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASkaterSimGameMode, CountDownTimerValue), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CountDownTimerValue_MetaData), NewProp_CountDownTimerValue_MetaData) };
-const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_MainUIWidget = { "MainUIWidget", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASkaterSimGameMode, MainUIWidget), Z_Construct_UClass_UClass, Z_Construct_UClass_UMainHUDWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MainUIWidget_MetaData), NewProp_MainUIWidget_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_PlayerRespawnDelay = { "PlayerRespawnDelay", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASkaterSimGameMode, PlayerRespawnDelay), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerRespawnDelay_MetaData), NewProp_PlayerRespawnDelay_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_PlayerDefeatedWidget = { "PlayerDefeatedWidget", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASkaterSimGameMode, PlayerDefeatedWidget), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerDefeatedWidget_MetaData), NewProp_PlayerDefeatedWidget_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_PlayerWinWidget = { "PlayerWinWidget", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASkaterSimGameMode, PlayerWinWidget), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerWinWidget_MetaData), NewProp_PlayerWinWidget_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASkaterSimGameMode_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_SkateboardCharacterSubClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_CountDownTimerValue,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_MainUIWidget,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_PlayerRespawnDelay,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_PlayerDefeatedWidget,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASkaterSimGameMode_Statics::NewProp_PlayerWinWidget,
@@ -170,10 +162,10 @@ ASkaterSimGameMode::~ASkaterSimGameMode() {}
 struct Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_GameMode_SkaterSimGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASkaterSimGameMode, ASkaterSimGameMode::StaticClass, TEXT("ASkaterSimGameMode"), &Z_Registration_Info_UClass_ASkaterSimGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASkaterSimGameMode), 262106753U) },
+		{ Z_Construct_UClass_ASkaterSimGameMode, ASkaterSimGameMode::StaticClass, TEXT("ASkaterSimGameMode"), &Z_Registration_Info_UClass_ASkaterSimGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASkaterSimGameMode), 301409432U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_GameMode_SkaterSimGameMode_h_4192684254(TEXT("/Script/SkateboardSim"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_GameMode_SkaterSimGameMode_h_3903640904(TEXT("/Script/SkateboardSim"),
 	Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_GameMode_SkaterSimGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_GameMode_SkaterSimGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

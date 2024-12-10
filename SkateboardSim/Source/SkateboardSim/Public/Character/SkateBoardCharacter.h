@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -7,32 +5,6 @@
 #include "Stats/EStat.h"
 #include "Interfaces/MainCharacter.h"
 #include "SkateBoardCharacter.generated.h"
-
-DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE(
-	FOnPlayerWinUpdateSignature,
-	ASkateBoardCharacter, FOnPlayerWinDelegate
-);
-
-DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE_OneParam(
-    FOnPlayerGrantedPointsSignature, 
-    ASkateBoardCharacter,               
-    FOnPlayerGrantedPointsDelegate,     
-    int, UpdatedPoints                       
-);
-
-DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE_OneParam(
-	FOnPlayerCollectsWaypointSignature,
-	ASkateBoardCharacter,
-	FOnPlayerCollectsWaypointDelegate,
-	int, Waypoints
-);
-
-DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE_OneParam(
-	FOnWaypointCollectedSignature,
-	ASkateBoardCharacter,
-	FOnWaypointCollectedDelegate,
-	int, NewAmount
-);
 
 UCLASS()
 class SKATEBOARDSIM_API ASkateBoardCharacter : public ACharacter, public IMainCharacter
@@ -68,6 +40,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UStatsComponent* StatsComp;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UUIComponent* UIComp;
+
 	virtual void GrantPoints(int Amount) override;
 
 	virtual void OnObstacleHit() override;
@@ -78,17 +53,6 @@ public:
 
 	virtual bool GetPlayerDead();
 
-	UPROPERTY(BlueprintAssignable)
-	FOnPlayerWinUpdateSignature FOnPlayerWinDelegate;
-
-	UPROPERTY(BlueprintAssignable)
-	FOnPlayerGrantedPointsSignature FOnPlayerGrantedPointsDelegate;
-
-	UPROPERTY(BlueprintAssignable)
-	FOnPlayerGrantedPointsSignature FOnPlayerCollectsWaypointDelegate;
-
-	UPROPERTY(BlueprintAssignable)
-	FOnWaypointCollectedSignature FOnWaypointCollectedDelegate;
 
 protected:
 	virtual void BeginPlay() override;
@@ -126,5 +90,4 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	int CurrentPoints { 0 };
-
 };
