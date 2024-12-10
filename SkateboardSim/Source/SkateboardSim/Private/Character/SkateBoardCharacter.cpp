@@ -59,11 +59,34 @@ void ASkateBoardCharacter::BeginPlay()
     if (GameMode)
     {
         MainGameMode = Cast<ASkaterSimGameMode>(GameMode);
-		if(MainGameMode)
+
+		if(GEngine)
 		{
-			MainGameMode->WidgetInstance->SetPointsText(StatsComp->Stats[EStat::CurrentPoints]);
+			GEngine->AddOnScreenDebugMessage(
+				-1,
+				5.f,
+				FColor::Blue,
+				"Yes, got the gamemode and casted it!"
+			);
 		}
-    }
+	}
+	else
+	{
+		if(GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(
+				-1,
+				5.f,
+				FColor::Red,
+				"Couldnt Get the game Mode"
+			);
+		}
+	}
+	// 	if(MainGameMode)
+	// 	{
+	// 		MainGameMode->WidgetInstance->SetPointsText(StatsComp->CurrentPointsTotal);
+	// 	}
+    // }
 }
 
 void ASkateBoardCharacter::MoveForward(float Value)
@@ -151,9 +174,10 @@ void ASkateBoardCharacter::Tick(float DeltaTime)
 
 void ASkateBoardCharacter::GrantPoints(int Amount)
 {
-	StatsComp->Stats[EStat::CurrentPoints] += Amount;
+	StatsComp->CurrentPointsTotal+= Amount;
+	FOnPlayerGrantedPointsDelegate.Broadcast(StatsComp->CurrentPointsTotal);
 
-	MainGameMode->WidgetInstance->SetPointsText(StatsComp->Stats[EStat::CurrentPoints]);
+	// MainGameMode->WidgetInstance->SetPointsText(StatsComp->CurrentPointsTotal);
 
 	if(PointsSoundEffect)
 	{
@@ -175,18 +199,19 @@ void ASkateBoardCharacter::OnObstacleHit()
 
 	DisableInput(GetController<APlayerController>());
 
-	GetWorld()->GetTimerManager().SetTimer(
-		TimerHandle, 
-		this, 
-		&ASkateBoardCharacter::Respawn, 
-		MainGameMode->PlayerRespawnDelay, 
-		false
-	);
+	// GetWorld()->GetTimerManager().SetTimer(
+	// 	TimerHandle, 
+	// 	this, 
+	// 	&ASkateBoardCharacter::Respawn, 
+	// 	MainGameMode->PlayerRespawnDelay, 
+	// 	false
+	// );
 }
 
 void ASkateBoardCharacter::OnWaypointCollected()
 {
 	StatsComp->WaypointsCollected += 1;
+	FOnPlayerCollectsWaypointDelegate.Broadcast(StatsComp->WaypointsCollected);
 
 	if(StatsComp->WaypointsCollected >= 10)
 	{
@@ -194,7 +219,8 @@ void ASkateBoardCharacter::OnWaypointCollected()
     	if (PlayerController)
     	{
         	DisableInput(PlayerController);
-			MainGameMode->HandlePlayerWin();
+			FOnPlayerWinDelegate.Broadcast();
+			// MainGameMode->HandlePlayerWin();
 		}
 	}
 
@@ -208,7 +234,7 @@ void ASkateBoardCharacter::OnWaypointCollected()
 		);
 	}
 
-	MainGameMode->WidgetInstance->SetWaypointsText(StatsComp->WaypointsCollected);
+	// MainGameMode->WidgetInstance->SetWaypointsText(StatsComp->WaypointsCollected);
 }
 
 void ASkateBoardCharacter::SetPlayerDead(bool IsPlayerDead)
@@ -231,6 +257,6 @@ bool ASkateBoardCharacter::GetPlayerDead()
 void ASkateBoardCharacter::Respawn()
 {
 	Destroy();
-	MainGameMode->HandlePlayerRespawn();
+	// MainGameMode->HandlePlayerRespawn();
 }
 

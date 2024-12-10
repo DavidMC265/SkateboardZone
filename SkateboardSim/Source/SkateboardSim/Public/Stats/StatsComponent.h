@@ -14,22 +14,17 @@ class SKATEBOARDSIM_API UStatsComponent : public UActorComponent
 	GENERATED_BODY()
 
 public:	
-	// Sets default values for this component's properties
 	UStatsComponent();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TMap<TEnumAsByte<EStat>, int> Stats;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int CurrentPointsTotal { 0 };
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int WaypointsCollected { 0 };
 
 protected:
-	// Called when the game starts
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
-		
 };

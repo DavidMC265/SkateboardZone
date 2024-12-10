@@ -13,7 +13,6 @@ void EmptyLinkFunctionForGeneratedCodeStatsComponent() {}
 ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 SKATEBOARDSIM_API UClass* Z_Construct_UClass_UStatsComponent();
 SKATEBOARDSIM_API UClass* Z_Construct_UClass_UStatsComponent_NoRegister();
-SKATEBOARDSIM_API UEnum* Z_Construct_UEnum_SkateboardSim_EStat();
 UPackage* Z_Construct_UPackage__Script_SkateboardSim();
 // End Cross Module References
 
@@ -35,7 +34,7 @@ struct Z_Construct_UClass_UStatsComponent_Statics
 		{ "IncludePath", "Stats/StatsComponent.h" },
 		{ "ModuleRelativePath", "Public/Stats/StatsComponent.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Stats_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentPointsTotal_MetaData[] = {
 		{ "Category", "StatsComponent" },
 		{ "ModuleRelativePath", "Public/Stats/StatsComponent.h" },
 	};
@@ -44,9 +43,7 @@ struct Z_Construct_UClass_UStatsComponent_Statics
 		{ "ModuleRelativePath", "Public/Stats/StatsComponent.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FIntPropertyParams NewProp_Stats_ValueProp;
-	static const UECodeGen_Private::FBytePropertyParams NewProp_Stats_Key_KeyProp;
-	static const UECodeGen_Private::FMapPropertyParams NewProp_Stats;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_CurrentPointsTotal;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_WaypointsCollected;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -55,14 +52,10 @@ struct Z_Construct_UClass_UStatsComponent_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats_ValueProp = { "Stats", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats_Key_KeyProp = { "Stats_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_SkateboardSim_EStat, METADATA_PARAMS(0, nullptr) }; // 862968472
-const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats = { "Stats", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UStatsComponent, Stats), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Stats_MetaData), NewProp_Stats_MetaData) }; // 862968472
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UStatsComponent_Statics::NewProp_WaypointsCollected = { "WaypointsCollected", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UStatsComponent, WaypointsCollected), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WaypointsCollected_MetaData), NewProp_WaypointsCollected_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UStatsComponent_Statics::NewProp_CurrentPointsTotal = { "CurrentPointsTotal", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UStatsComponent, CurrentPointsTotal), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentPointsTotal_MetaData), NewProp_CurrentPointsTotal_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UStatsComponent_Statics::NewProp_WaypointsCollected = { "WaypointsCollected", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UStatsComponent, WaypointsCollected), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WaypointsCollected_MetaData), NewProp_WaypointsCollected_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UStatsComponent_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats_ValueProp,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats_Key_KeyProp,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStatsComponent_Statics::NewProp_Stats,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStatsComponent_Statics::NewProp_CurrentPointsTotal,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStatsComponent_Statics::NewProp_WaypointsCollected,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UStatsComponent_Statics::PropPointers) < 2048);
@@ -106,10 +99,10 @@ UStatsComponent::~UStatsComponent() {}
 struct Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UStatsComponent, UStatsComponent::StaticClass, TEXT("UStatsComponent"), &Z_Registration_Info_UClass_UStatsComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UStatsComponent), 3861946750U) },
+		{ Z_Construct_UClass_UStatsComponent, UStatsComponent::StaticClass, TEXT("UStatsComponent"), &Z_Registration_Info_UClass_UStatsComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UStatsComponent), 2778450725U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_1549542348(TEXT("/Script/SkateboardSim"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_1446253080(TEXT("/Script/SkateboardSim"),
 	Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_dmayo_Documents_GitHub_SkateboardZone_SkateboardSim_Source_SkateboardSim_Public_Stats_StatsComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

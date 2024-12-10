@@ -12,15 +12,17 @@ void ASkaterSimGameMode::BeginPlay()
 {
     Super::BeginPlay();
     
-    if (MainUIWidget)
-    {
-       WidgetInstance = CreateWidget<UMainHUDWidget>(GetWorld(), MainUIWidget);
+        //Widget functionality had to be passed to blueprint becuase of crash
 
-        if (WidgetInstance)
-        {
-            WidgetInstance->AddToViewport();
-        }        
-    }
+    // if (MainUIWidget)
+    // {
+    //    WidgetInstance = CreateWidget<UMainHUDWidget>(GetWorld(), MainUIWidget);
+
+    //     if (WidgetInstance)
+    //     {
+    //         WidgetInstance->AddToViewport();
+    //     }        
+    // }
 }
 
 
